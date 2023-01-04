@@ -16,14 +16,13 @@ document.body.classList.add("alert-success"); //background color
 async function brew() {
   try {
     let nameSearch = document.getElementById("txt");
-    console.log("working the functinon");
     let search = document.getElementById("brewSer");
     search.innerHTML = "Related to your search:";
     let data = await (
       await fetch(`https://api.openbrewerydb.org/breweries`)
     ) //Name based api
       .json();
-    console.log(data);
+  
     data
       .filter((e) => e.name == nameSearch.value)
       .forEach((e) => {
@@ -49,12 +48,10 @@ async function brew() {
 async function listBreweries() {
   try {
     let search = document.getElementById("brewSer");
-    //   console.log("working the functinon");
     let data = await (
       await fetch("https://api.openbrewerydb.org/breweries")
     ) //ListApi
       .json();
-    //   console.log(data);
     data.forEach((e) => {
       search.innerHTML += `<div class="card mt-5" style="width: 18rem;">
           <div><h5 class="card-title"> ${e.name}</h5> </div>
