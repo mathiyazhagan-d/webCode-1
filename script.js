@@ -41,7 +41,7 @@ async function brew() {
       </div>`;
       });
   } catch (e) {
-    console.error(e);
+    document.body.innerHTML=`${e}`;
   }
 }
 //----------------listApi---------------------------
@@ -68,7 +68,7 @@ async function listBreweries() {
         </div>`;
     });
   } catch (e) {
-    console.error(e);
+    document.body.innerHTML=`${e}`;
   }
 }
 
