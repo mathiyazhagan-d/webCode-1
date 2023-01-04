@@ -12,6 +12,7 @@ div1.innerHTML = `<div class="text-center mt-5">
 document.body.append(title);
 document.body.append(div1);
 document.body.classList.add("alert-success"); //background color
+//----------------search--------------------
 async function brew() {
   try {
     let nameSearch = document.getElementById("txt");
@@ -19,14 +20,14 @@ async function brew() {
     let search = document.getElementById("brewSer");
     search.innerHTML = "Related to your search:";
     let data = await (
-      await fetch(
-        `https://api.openbrewerydb.org/breweries?${nameSearch.value}=cooper&per_page=3`
-      )
+      await fetch(`https://api.openbrewerydb.org/breweries`)
     ) //Name based api
       .json();
-    // console.log(data);
-    data.forEach((e) => {
-      search.innerHTML += `<div class="card mt-5" style="width: 18rem;">
+    console.log(data);
+    data
+      .filter((e) => e.name == nameSearch.value)
+      .forEach((e) => {
+        search.innerHTML += `<div class="card mt-5" style="width: 18rem;">
         <div><h5 class="card-title"> ${e.name}</h5> </div>
         <img src="./img/img (4).jpg"  class="card-img-top" alt="...">
         <div class="card-body">
@@ -39,7 +40,7 @@ async function brew() {
           
         </div>
       </div>`;
-    });
+      });
   } catch (e) {
     console.error(e);
   }
