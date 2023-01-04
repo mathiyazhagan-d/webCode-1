@@ -3,7 +3,7 @@ let title = document.createElement("div");
 title.innerHTML = `<div class="display-2 text-center container-fluid bg-dark text-white">Mad Tree Brewing</div>`;
 let div1 = document.createElement("div");
 div1.innerHTML = `<div class="text-center mt-5">
-<input type="text" class="center"id="txt">
+<input type="text" class="center"id="txt" placeholder="Enter name">
 <button type="button" class="btn btn-success" onclick="brew()">search</button>
 <div class="text-muted"> some of list of company breweries are given below and you can also search</div>
 <div id="brewSer" class="row justify-content-evenly mt-5 "></div>
